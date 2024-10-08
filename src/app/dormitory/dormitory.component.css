@@ -1,0 +1,406 @@
+.nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #1B66AB;
+    padding: 10px;
+    /* Adjust padding as needed */
+}
+
+
+
+.nav-profile {
+    display: flex;
+    align-items: center;
+    color: white;
+}
+
+
+.nav-name {
+    display: flex;
+    align-items: center;
+}
+
+.logo {
+    height: 70px;
+    /* Adjust height as needed */
+    width: auto;
+    /* Maintain aspect ratio */
+}
+
+.profile {
+    height: 40px;
+    width: auto;
+}
+
+.name-container {
+    display: flex;
+    flex-direction: column;
+    /* Arrange text in a column */
+    justify-content: center;
+    /* Center the text vertically */
+    margin-left: 20px;
+    /* Adjust spacing from the logo */
+}
+
+.nameweb1,
+.nameweb2 {
+    margin: 0;
+    /* Remove default margins */
+}
+
+.nameweb1 {
+    position: relative;
+    z-index: 1;
+    font-family: Inter;
+    margin-left: 20px;
+    font-size: 38px;
+    font-style: italic;
+    font-weight: 600;
+    line-height: 45.99px;
+    text-align: left;
+    color: white;
+    z-index: 1;
+    text-shadow:
+        -1px -1px 0 #000,
+        1px -1px 0 #000,
+        -1px 1px 0 #000,
+        1px 1px 0 #000;
+}
+
+.nameweb2 {
+    position: relative;
+    font-family: Inter;
+    margin-left: 130px;
+    font-size: 38px;
+    font-style: italic;
+    font-weight: 600;
+    line-height: 45.99px;
+    text-align: right;
+    color: white;
+    text-shadow:
+        -1px -1px 0 #000,
+        1px -1px 0 #000,
+        -1px 1px 0 #000,
+        1px 1px 0 #000;
+    z-index: 1;
+}
+
+.header img {
+    width: 100%;
+    height: 40vh;
+    object-fit: cover;
+    display: block;
+    position: relative;
+    z-index: 0;
+}
+
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    right: 0;
+
+    background-color: #1B66AB;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+}
+
+.dropdown-content a {
+    color: white;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+
+    align-items: center;
+}
+
+.dropdown-content a:hover {
+    background-color: #a9d6ff
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+.dropdown:hover .dropbtn {
+    background-color: #87c5ff;
+}
+
+.dropdown-icon {
+    height: 20px;
+    width: auto;
+
+
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.search-bar {
+    display: flex;
+    /* Aligns children in a row */
+   
+    /* Centers the entire search bar horizontally */
+    align-items: center;
+    /* Aligns items vertically within the search bar */
+    gap: 10px;
+    /* Adds some space between the input fields and the button */
+    padding: 10px;
+    background-color: #3E9AEF;
+    /* Adds some margin above and below the search bar */
+}
+
+.search-bar input.input1 {
+    display: flex;
+    background-color: white;
+    border-radius: 10px;
+    height: 35px;
+    width: 40%;
+
+}
+
+.search-bar input.input2 {
+    display: flex;
+    background-color: white;
+    border-radius: 10px;
+    height: 35px;
+    width: 25%;
+}
+
+.search-bar input.input3 {
+    display: flex;
+    background-color: white;
+    border-radius: 10px;
+    height: 37px;
+    width: 25%;
+}
+
+.search-bar input.input4 {
+    display: flex;
+    background-color: white;
+    border-radius: 10px;
+
+}
+
+.head-menu {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+}
+
+.btn-add-dormitory {
+    width: 150px;
+    height: 30px;
+    border-radius: 10px;
+    background-color: #FF6E41;
+    color: white;
+    border: none;
+}
+
+.btn-add-dormitory:hover {
+    width: 150px;
+    height: 30px;
+    border-radius: 10px;
+    background-color: #ff4b15;
+    color: white;
+    border: none;
+}
+
+.btn-add-dormitory-and-logo {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    justify-content: space-between;
+
+}
+
+.dormitory-card {
+    display: flex;
+    border: 1px solid #e0e0e0;
+    border-radius: 10px;
+    overflow: hidden;
+    max-height: 150px;
+    font-family: Arial, sans-serif;
+    margin:0px 40px 20px 40px;
+    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+.dormitory-image img {
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+    display: block;
+    border-radius: 10px;
+}
+
+.dormitory-info {
+    padding:5px 20px 0px 50px;
+    flex: 1;
+}
+
+.dormitory-info h3 {
+    margin: 0 0 10px;
+    font-size: 18px;
+}
+
+.dormitory-meta {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 10px;
+}
+
+.dormitory-meta .type {
+    background-color: #007bff;
+    color: white;
+    padding: 5px 10px;
+    border-radius: 5px;
+    font-size: 14px;
+    margin-right: 10px;
+}
+
+.rating {
+    color: #ffcc00;
+    
+}
+
+.rating span {
+    font-size: 18px;
+}
+
+.rating .filled {
+    color: #ffcc00;
+}
+
+.location {
+    font-size: 14px;
+    color: #888;
+    margin-bottom: 15px;
+}
+
+.dormitory-price {
+    font-size: 16px;
+    color: #333;
+    margin-bottom:0px;
+}
+
+.dormitory-price span {
+    font-size: 12px;
+    color: #888;
+}
+
+.book-now-btn {
+    background-color: #ff5722;
+    color: white;
+    padding: 5px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    height: 30px;
+    width: 80px;
+   
+}
+
+.book-now-btn:hover {
+    background-color: #e64a19;
+}
+
+.location-price {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: -20px;
+}
+
+.dormitory-price {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+}
+.book-now-btn1 {
+    background-color: #3E9AEF;
+    color: white;
+    padding: 10px;
+    border: none;
+    border-radius: 20px;
+    width: 10%;
+    cursor: pointer;
+}
+
+/* CSS */
+.floating-help-button {
+    position: fixed;
+    bottom: 10px;
+    right: 20px;
+    z-index: 1000;
+}
+
+.help-button {
+    background-color: #3E9AEF;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.help-button:hover {
+    background-color: #1B66AB;
+}
+
+.footer {
+    background-color: #1B66AB;
+    color: white;
+    text-align: center;
+    padding: 20px;
+    
+     /* ตำแหน่งฟุตเตอร์ติดอยู่กับขอบจอ */
+    bottom: 0;  /* ติดขอบล่างของหน้าจอ */
+    left: 0;
+    z-index: 1000;
+}
+
+.footer-content {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.footer p {
+    margin: 0;
+    font-size: 14px;
+}
+
+.dropdows {
+    width: 1000px;
+    height: 50px;
+    border-radius: 10px;
+    padding-left: 40px;
+ 
+}
+
+.label-icon {
+    position: absolute;
+    left: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 20px;
+    height: auto;
+    pointer-events: none;
+    /* Prevent icon from blocking dropdown interaction */
+}
+
+.select-label {
+    position: relative;
+    display: inline-block;
+    font-size: 16px;
+}

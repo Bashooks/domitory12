@@ -1,0 +1,83 @@
+:host {
+  display: block;
+  max-width: 400px;
+  width: 100%;
+  padding: 16px;
+}
+
+mat-dialog-title {
+  font-size: 1.5rem;
+  font-weight: bold;
+  text-align: center;
+  margin-bottom: 1rem;
+}
+
+mat-dialog-content {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.mat-form-field {
+  width: 100%;
+}
+
+button.mat-raised-button {
+  margin-top: 1rem;
+  background-color: #ff6f00; /* สีปุ่มเข้าสู่ระบบ */
+  color: white;
+  font-weight: bold;
+  text-transform: none;
+}
+
+.mat-dialog-actions {
+  margin-top: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.mat-dialog-actions button {
+  color: #3c4043; /* สีของปุ่ม Google และ Facebook */
+  font-weight: bold;
+  text-transform: none;
+  border: 1px solid #dadce0;
+}
+
+.mat-dialog-actions button:hover {
+  background-color: #f8f9fa;
+}
+
+p {
+  font-size: 0.8rem;
+  text-align: center;
+  margin-top: 1rem;
+  color: #6c757d; /* สีข้อความ Terms & Conditions */
+}
+
+p a {
+  color: #1a73e8; /* สีลิงค์ Terms & Conditions */
+  text-decoration: none;
+}
+
+p a:hover {
+  text-decoration: underline;
+}
+
+.full-width {
+  width: 100%;
+}
+
+@media (max-width: 768px) {
+  :host {
+    padding: 8px;
+  }
+
+  mat-dialog-content {
+    gap: 0.5rem;
+  }
+
+  .mat-dialog-actions {
+    gap: 0.25rem;
+  }
+}

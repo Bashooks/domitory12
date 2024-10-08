@@ -1,0 +1,157 @@
+<div class="container">
+    <div class="topleft">
+        <div class="nameweb">
+            <div class="icon-image">
+                <img src="assets/img/logoimage.png">
+            </div>
+            <div>
+                <h1 class="nameweb1">Dormitory</h1>
+                <h1 class="nameweb2">Web</h1>
+            </div>
+        </div>
+    </div>
+    <div class="topright">
+        <div class="search">
+            <button class="searchbutton" (click)="GotoSearch()">
+                ค้นหาหอพัก
+            </button>
+            <div *ngIf="isLoggedIn; else notLoggedIn" class="dropdown">
+                <div class="profile-section" (click)="toggleDropdown()" >
+                    <img src="../assets/img/profileimage.png" alt="Profile Image" class="profile-image">
+                    <span class="full-name">
+                        {{userInfo.firstName }} {{userInfo.lastName }} V 
+                    </span><!-- ชื่อนามสกุล -->
+                </div>
+                <div *ngIf="isDropdownOpen" class="dropdown-menu">
+                    <button class="dropdown-button" (click)="gotoSetting()">
+                        <img src="assets/img/navdow/settingimage.png" alt="ตั้งค่า" class="icon"> ตั้งค่า
+                    </button>
+                    <button class="dropdown-button" (click)="gotodocumenttracking()">
+                        <img src="assets/img/navdow/followimage.png" alt="ติดตามเอกสาร" class="icon"> ติดตามเอกสาร
+                    </button>
+                    <button class="dropdown-button" (click)="logout()">
+                        <img src="assets/img/navdow/logoutimage.png" alt="ออกจากระบบ" class="icon"> ออกจากระบบ
+                    </button>
+                </div>
+                
+            </div>
+        </div>
+        
+
+        <!-- ถ้าไม่มีการล็อกอินให้แสดงปุ่มเข้าสู่ระบบและสมัครสมาชิก -->
+        <ng-template #notLoggedIn>
+            <button class="loginbutton" (click)="openLoginDialog()">
+                เข้าสู่ระบบ
+            </button>
+            <button class="registerbutton" (click)="openRegisterDialog()">
+                ลงทะเบียน
+            </button>
+        </ng-template>
+    </div>
+    <img src="assets/img/homeimage.png">
+    <div class="center">
+        <h1 class="with-lines">เราคัดสรรหอพักที่ดีเพื่อความสุขสบายของคุณ</h1>
+        <label for="district" class="select-label">
+            <img src="assets/img/logoimage.png" alt="Icon" class="label-icon">
+            <select id="district" class="dropdows" [(ngModel)]="selectedProvince"
+                (change)="filterDormitoriesByProvince()">
+                <option value="all">เลือกจังหวัด</option>
+                <option *ngFor="let province of provinces" [value]="province">
+                    {{ province }}
+                </option>
+            </select>
+        </label>
+        <h3 class="with-lines2">Dormitory</h3>
+    </div>
+</div>
+<div class="container2">
+    <div class="between1">
+        <div>
+            <div class="maincontent">
+                <h1 class="font-text">หอพักเเนะนำ!</h1>
+                <img src="assets/img/skyimage.png" class="skyimage">
+            </div>
+            <h3 class="font-text-detail">หอพักแนะนำที่สุดแสนสบาย บรรยากาศที่ดีเหมาะเเก่การพักของคุณ</h3>
+        </div>
+        <h1 (click)="Gotodormitory()" class="icon-gotodetail">></h1>
+    </div>
+    <div class="provicebutton">
+        <button class="bk-button" [ngClass]="{'active': selectedCity === 'bangkok'}" (click)="selectCity('bangkok')">
+            กรุงเทพฯ
+        </button>
+        <button class="ch-button" [ngClass]="{'active': selectedCity === 'chiangmai'}"
+            (click)="selectCity('chiangmai')">
+            เชียงใหม่
+        </button>
+    </div>
+
+    <!-- Row 1 -->
+    <div class="row">
+        <div class="fix-row">
+            <div *ngFor="let dorm of dormitoriesBKK" class="card">
+                <div class="image-container">
+                    <div class="location-badge">{{ dorm.province }}</div>
+                    <img [src]="dorm.imageUrls[0]" alt="Room Image">
+                </div>
+                <div class="card-content">
+                    <div class="property-name">{{ dorm.name }}</div>
+                    <div class="rating">
+                        <img src="../assets/img/logoimage.png" alt="Building Icon">
+                        <span class="review-count">⭐⭐⭐⭐⭐(5)</span>
+                    </div>
+                    <div class="card-footer">
+                        <div class="score">9/10</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="between1">
+        <div>
+            <div class="maincontent">
+                <h1 class="font-text">หอพักยอดนิยม!</h1>
+                <img src="assets/img/skyimage.png" class="skyimage">
+            </div>
+            <h3 class="font-text-detail">หอพักยอดนิยมที่มีคนเข้าใช้และการันตีว่าสบายที่สุด</h3>
+        </div>
+        <h1 (click)="Gotodormitory()" class="icon-gotodetail"> > </h1>
+    </div>
+    <div class="row">
+        <div class="fix-row">
+            <div *ngFor="let dorm of dormitories" class="card">
+                <div class="image-container">
+                    <div class="location-badge">{{ dorm.province }}</div>
+                    <img [src]="dorm.imageUrls[0]" alt="Room Image">
+                </div>
+                <div class="card-content">
+                    <div class="property-name">{{ dorm.name }}</div>
+                    <div class="rating">
+                        <img src="../assets/img/logoimage.png" alt="Building Icon">
+                        <span class="review-count">⭐⭐⭐⭐⭐(5)</span>
+                    </div>
+                    <div class="card-footer">
+                        <div class="score">9/10</div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+</div>
+
+
+<div class="container3">
+    <img src="../assets/img/footerimage.png">
+    <div class="center">
+        <h1 class="with-lines2">เพื่อการค้นหาที่พักสุดแสนสบายของคุณพบกันได้ที่</h1>
+        <h1 class="with-lines2">Dormitory Web</h1>
+    </div>
+</div>
+<div class="footer">
+    <div class="center-footer">
+        <h4 class="footer-text">Copyright © 2024 Dormitory . All rights reserved</h4>
+    </div>
+
+</div>

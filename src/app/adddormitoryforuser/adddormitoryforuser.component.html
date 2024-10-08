@@ -1,0 +1,109 @@
+<nav class="nav">
+    <div class="nav-name">
+        <img src="assets/img/logoimage.png" alt="logo" class="logo">
+        <div (click)="gotohome()">
+            <h1 class="nameweb1">Dormitory</h1>
+            <h1 class="nameweb2">Web</h1>
+        </div>
+    </div>
+    <div class="nav-profile">
+        <img src="assets/img/profileimage.png" alt="profile" class="profile">
+        <p>{{userInfo.firstName}} {{userInfo.lastName}}</p>
+        <p style="padding-right: 5px;"></p>
+        <div class="dropdown">
+            <button class="dropbtn"
+                style="background-color: rgba(255, 255, 255, 0); border: none; color: white;">V</button>
+            <div class="dropdown-content">
+                <a href="/setting"><img src="assets/img/navdow/settingimage.png" alt="Settings Icon"
+                        style="width: 20px; height: auto;">
+                    ตั้งค่า</a>
+                <a href="/documenttracking"><img src="assets/img/navdow/followimage.png" alt="Track Document Icon"
+                        style="width: 20px; height: auto;">ติดตามเอกสาร</a>
+                <a href="#" (click)="logout()"><img src="assets/img/navdow/logoutimage.png" alt="Logout Icon"
+                        style="width: 20px; height: auto;"> ออกจากระบบ</a>
+            </div>
+        </div>
+    </div>
+</nav>
+<div class="upload-imge">
+    <div class="fix-imge">
+        <div class="bk-imge" onclick="document.getElementById('file-input1').click()" style="cursor: pointer;">
+            <img [src]="images[0] || iconimg" alt="profile1" class="image-dorm">
+            <input type="file" id="file-input1" class="file-input" style="display: none;"
+                (change)="onFileSelected($event, 0)" accept="image/*" />
+        </div>
+        <div class="bk-imge" onclick="document.getElementById('file-input2').click()" style="cursor: pointer;">
+            <img [src]="images[1] || iconimg" alt="profile2" class="image-dorm">
+            <input type="file" id="file-input2" class="file-input" style="display: none;"
+                (change)="onFileSelected($event, 1)" accept="image/*" />
+        </div>
+        <div class="bk-imge" onclick="document.getElementById('file-input3').click()" style="cursor: pointer;">
+            <img [src]="images[2] || iconimg" alt="profile3" class="image-dorm">
+            <input type="file" id="file-input3" class="file-input" style="display: none;"
+                (change)="onFileSelected($event, 2)" accept="image/*" />
+        </div>
+        <div class="bk-imge" onclick="document.getElementById('file-input4').click()" style="cursor: pointer;">
+            <img [src]="images[3] || iconimg" alt="profile4" class="image-dorm">
+            <input type="file" id="file-input4" class="file-input" style="display: none;"
+                (change)="onFileSelected($event, 3)" accept="image/*" />
+        </div>
+    </div>
+</div>
+
+<form [formGroup]="dormitoryForm" (ngSubmit)="saveDormitory()">
+    <div class="label-input">
+        <div class="set-icon">
+            <img src="assets/img/logoimage.png" alt="room-info" class="room-info">
+            <label for="room-info"><strong>ชื่อหอพัก</strong></label><br>
+            <textarea id="room-info" rows="4" cols="50" placeholder="" class="room-info" formControlName="name"></textarea>
+        </div>
+        <div class="set-icon">
+            <img src="assets/img/logoimage.png" alt="subdistrict-info" class="subdistrict-info">
+            <label for="subdistrict"><strong>ตำบล</strong></label><br>
+            <textarea id="subdistrict" placeholder="" class="subdistrict" formControlName="subDistrict"></textarea>
+        </div>
+        <div class="set-icon">
+            <img src="assets/img/logoimage.png" alt="district-info" class="district-info">
+            <label for="district"><strong>อำเภอ</strong></label><br>
+            <textarea id="district" placeholder="" class="district" formControlName="district"></textarea>
+        </div>
+        <div class="set-icon">
+            <img src="assets/img/logoimage.png" alt="province-info" class="province-info">
+            <label for="province"><strong>จังหวัด</strong></label><br>
+            <textarea id="province" placeholder="" class="province" formControlName="province"></textarea>
+        </div>
+        <div class="set-icon">
+            <img src="assets/img/logoimage.png" alt="price-info" class="price-info">
+            <label for="price"><strong>ราคา</strong></label><br>
+            <textarea id="price" placeholder="" class="price" formControlName="price"></textarea>
+        </div>
+        <div class="set-icon">
+            <img src="assets/img/logoimage.png" alt="detaildormitory" class="detaildormitory">
+            <label for="detaildormitory"><strong>รายละเอียดหอพัก</strong></label><br>
+            <textarea id="detaildormitory" rows="4" cols="50" placeholder="" formControlName="description"></textarea>
+        </div>
+        <div class="set-icon">
+            <img src="assets/img/farmigerimage.png" alt="furniture-info" class="furniture-info">
+            <label for="furniture-info"><strong>เฟอร์นิเจอร์</strong></label><br>
+            <textarea id="furniture-info" rows="4" cols="50" placeholder="" formControlName="furniture"></textarea>
+        </div>
+        <div class="set-icon">
+            <img src="assets/img/contackimage.png" alt="contact-info" class="contact-info">
+            <label for="contact-info"><strong>ช่องทางติดต่อ</strong></label><br>
+            <textarea id="contact-info" rows="4" cols="50" placeholder="" formControlName="contact"></textarea>
+        </div>
+        <div class="footer-btn">
+            
+            <div>
+                <button type="submit" class="btn-secondary">บันทึก</button>
+                <button type="button" class="btn-warning" (click)="gotodormitory()">จองหอพัก</button>
+            </div>
+        </div>
+    </div>
+</form>
+
+<div class="footer" style="bottom: 0px;">
+    <div class="footer-content">
+        <p>Copyright © 2024 Dormitory. All rights reserved</p>
+    </div>
+</div>

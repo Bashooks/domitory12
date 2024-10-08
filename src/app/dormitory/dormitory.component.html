@@ -1,0 +1,80 @@
+<div class="dormitory-list">
+    <nav class="nav">
+        <div class="nav-name">
+            <img src="assets/img/logoimage.png" alt="logo" class="logo">
+            <div>
+                <h1 class="nameweb1">Dormitory</h1>
+                <h1 class="nameweb2">Web</h1>
+            </div>
+        </div>
+        <div class="nav-profile">
+            <img src="assets/img/profileimage.png" alt="profile" class="profile">
+            <p *ngIf="isLoggedIn">{{userInfo.firstName}} {{userInfo.lastName}}</p>
+            <p style="padding-right: 5px;"></p>
+            <div class="dropdown">
+                <button class="dropbtn" style="background-color: rgba(255, 255, 255, 0); border: none; color: white;">V</button>
+                <div class="dropdown-content">
+                    <a href="/setting"><img src="assets/img/navdow/settingimage.png" alt="Settings Icon" style="width: 20px; height: auto;"> ตั้งค่า</a>
+                        
+                        <a href="/documenttracking"><img src="assets/img/navdow/followimage.png" alt="Track Document Icon" style="width: 20px; height: auto;">ติดตามเอกสาร</a>
+                        <a href="#" (click)="logout()"><img src="assets/img/navdow/logoutimage.png" alt="Logout Icon" style="width: 20px; height: auto;"> ออกจากระบบ</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+    <div class="search-bar">
+        <select id="district" class="dropdows" [(ngModel)]="selectedProvince"
+        (change)="filterDormitoriesByProvince()">
+        <option value="all">เลือกจังหวัด</option>
+        <option *ngFor="let province of provinces" [value]="province">
+            {{ province }}
+        </option>
+    </select>
+    </div>
+    <div class="btn-add-dormitory-and-logo">
+        <div class="head-menu">
+            <img src="assets/img/logoimage.png" alt="logo" class="logo" style="padding-right:10px;">
+            <h3>ที่พักสำหรับคุณ</h3>
+        </div>
+        <div>
+            <button class="btn-add-dormitory" (click)="GotoAdddormitory()">เพิ่มหอพัก</button>
+        </div>
+    </div>
+    <div *ngFor="let dorm of dormitories" class="dormitory-card" (click)="selectRoom(dorm.id)">
+        <div class="dormitory-image">
+            <img [src]="dorm.imageUrls[0]" alt="Dormitory Image" />
+        </div>
+        <div class="dormitory-info" >
+
+            <div style="display: flex; align-items: center; justify-content: space-between;">
+
+                <h3>{{ dorm.name }}</h3>
+                <div class="vertical-divider"></div>
+                <button class="book-now-btn1">ที่พักยอดนิยม</button>
+
+            </div>
+            <div class="dormitory-meta">
+                <div class="rating">
+                    <span class="type">หอพัก</span>
+                    <span *ngFor="let star of [1,2,3,4,5]" [ngClass]="{'filled': star <= dorm.rating}">&#9733;</span>
+                </div>
+                <p>THB {{ dorm.price | number:'1.2-2' }}</p>
+            </div>
+            <div class="location-price">
+                <p class="location">{{dorm.province}}</p>
+                <div class="dormitory-price">
+                    <span>(ไม่รวมภาษีและค่าธรรมเนียม)</span><br>
+                    <button class="book-now-btn" (click)="Gotosubmitdocuments()">เลือกห้อง</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="floating-help-button">
+        <button class="help-button">ต้องการความช่วยเหลือ?</button>
+    </div>
+    <div class="footer">
+        <div class="footer-content">
+            <p>Copyright © 2024 Dormitory. All rights reserved</p>
+        </div>
+    </div>
+</div>   

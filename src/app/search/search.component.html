@@ -1,0 +1,44 @@
+<nav class="nav">
+    <div class="nav-name">
+        <img src="assets/img/logoimage.png" alt="logo" class="logo">
+        <div>
+            <h1 class="nameweb1">Dormitory</h1>
+            <h1 class="nameweb2">Web</h1>
+        </div>
+    </div>
+    <div class="nav-profile">
+        <img src="assets/img/profileimage.png" alt="profile" class="profile">
+        <p *ngIf="isLoggedIn">{{userInfo.firstName}} {{userInfo.lastName}}</p>
+        <div class="dropdown">
+            <button class="dropbtn">V</button>
+            <div class="dropdown-content">
+                <a href="/setting"><img src="assets/img/navdow/settingimage.png" alt="Settings Icon" style="width: 20px; height: auto;"> ตั้งค่า</a>
+                
+                <a href="/documenttracking"><img src="assets/img/navdow/followimage.png" alt="Track Document Icon" style="width: 20px; height: auto;">ติดตามเอกสาร</a>
+                <a href="#" (click)="logout()"><img src="assets/img/navdow/logoutimage.png" alt="Logout Icon" style="width: 20px; height: auto;"> ออกจากระบบ</a>
+            </div>
+        </div>
+        
+    </div>
+</nav>
+
+<div class="header">
+    <img src="assets/img/mainimage.png" alt="logo" class="logo">
+</div>
+
+<div class="container">
+    <div class="search-bar">
+        <label for="location">เลือกจังหวัด</label><br>
+        <div class="input-container">
+            <img src="assets/img/locationimage.png" alt="Location Icon" class="input-icon">
+            <select id="district" class="dropdows" [(ngModel)]="selectedProvince"
+            (change)="filterDormitoriesByProvince()">
+            <option value="all">เลือกจังหวัด</option>
+            <option *ngFor="let province of provinces" [value]="province">
+                {{ province }}
+            </option>
+        </select>
+        </div>
+    </div><br>
+    <button class="search"  >ค้นหาหอพัก</button> 
+</div>

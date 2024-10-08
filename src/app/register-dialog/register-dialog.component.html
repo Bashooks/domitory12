@@ -1,0 +1,42 @@
+<h2 mat-dialog-title>สมัครสมาชิก</h2>
+<mat-dialog-content>
+  <form [formGroup]="registerForm" (ngSubmit)="register()">
+    <mat-form-field appearance="outline" class="full-width" style="padding-top: 15px;">
+      <mat-label>อีเมล</mat-label>
+      <input matInput type="email" formControlName="email" placeholder="yourname@gmail.com">
+      <mat-error *ngIf="registerForm.get('email')?.invalid && registerForm.get('email')?.touched">
+        กรุณากรอกอีเมลที่ถูกต้อง
+      </mat-error>
+    </mat-form-field>
+  
+    <mat-form-field appearance="outline" class="full-width">
+      <mat-label>รหัสผ่าน</mat-label>
+      <input matInput type="password" formControlName="password">
+      <mat-error *ngIf="registerForm.get('password')?.invalid && registerForm.get('password')?.touched">
+        รหัสผ่านต้องมีความยาวอย่างน้อย 6 ตัวอักษร
+      </mat-error>
+    </mat-form-field>
+  
+    <mat-form-field appearance="outline" class="full-width">
+      <mat-label>ยืนยันรหัสผ่าน</mat-label>
+      <input matInput type="password" formControlName="confirmPassword">
+      <mat-error *ngIf="registerForm.errors?.['mismatch'] && registerForm.get('confirmPassword')?.touched">
+        รหัสผ่านไม่ตรงกัน
+      </mat-error>
+    </mat-form-field>
+  
+    <button mat-raised-button color="primary" class="full-width" style="color: white;" type="submit" >สมัครสมาชิก</button>
+    <p class="center-text" (click)="openLoginDialog()" style="text-align: center; margin: 15px 0;">
+      หรือเข้าสู่ระบบ/ลงทะเบียนโดยใช้
+    </p>
+  </form>
+  
+  
+</mat-dialog-content>
+
+<mat-dialog-actions align="center" >
+  <button mat-button class="full-width">ดำเนินการต่อด้วย Google</button>
+  <button mat-button class="full-width">ดำเนินการต่อด้วย Facebook</button>
+</mat-dialog-actions>
+
+<p>By registering you agree to our <a href="#">Terms & Conditions</a> and that you have read our <a href="#">Privacy Notice</a>.</p>

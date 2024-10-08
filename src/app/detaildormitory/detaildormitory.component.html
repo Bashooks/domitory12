@@ -1,0 +1,64 @@
+<nav class="nav">
+  <div class="nav-name">
+    <img src="assets/img/logoimage.png" alt="logo" class="logo">
+    <div>
+      <h1 class="nameweb1">Dormitory</h1>
+      <h1 class="nameweb2">Web</h1>
+    </div>
+  </div>
+  <div class="nav-profile">
+    <p style="padding-right: 15px;">ค้นหา</p>
+    <img src="assets/img/profileimage.png" alt="profile" class="profile">
+    <p>Boomnathat</p>
+    
+    <div class="dropdown">
+      <button class="dropbtn" style="background-color: rgba(255, 255, 255, 0); border: none; color: white;">V</button>
+      <div class="dropdown-content">
+        <a href="/setting"><img src="assets/img/navdow/settingimage.png" alt="Settings Icon" class="dropdown-icon"> ตั้งค่า</a>
+        <a href="/documenttracking"><img src="assets/img/navdow/followimage.png" alt="Track Document Icon" class="dropdown-icon">
+          ติดตามเอกสาร</a>
+        <a href="#" (click)="logout()"><img src="assets/img/navdow/logoutimage.png" alt="Logout Icon" class="dropdown-icon"> ออกจากระบบ</a>
+      </div>
+    </div>
+  </div>
+</nav>
+<div class="content">
+  <div class="image-gallery">
+    <img *ngFor="let image of dormitory.imageUrls" [src]="image" alt="Room Image" class="gallery-img"
+      style="background-color: #BFBFBF;">
+  </div>
+  <div class="apartment-info">
+    <h2>{{dormitory.name}}</h2>
+    <div class="info-section">
+      <h3>ข้อมูลหอพัก</h3>
+      <p>{{dormitory.province}}, {{dormitory.district}}, {{dormitory.subDistrict}}</p>
+      <p>{{dormitory.description}}</p>
+    </div>
+
+    <div class="info-section">
+      <h3>เฟอร์นิเจอร์</h3>
+      <ul>
+        <li *ngFor="let item of dormitory.furniture.split('\n')">
+          {{item }}
+        </li>
+      </ul>
+    </div>
+
+    <div class="contact-section">
+      <h3>ช่องทางติดต่อ</h3>
+      <p>{{dormitory.contact}} </p>
+      <h3>คะแนน</h3>
+      <div class="rating">
+        <span class="star">&#9733;</span>
+        <span class="star">&#9733;</span>
+        <span class="star">&#9733;</span>
+        <span class="star">&#9733;</span>
+        <span class="star">&#9733;</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <p>&copy; 2024 Dormitory . All rights reserved</p>
+</footer>

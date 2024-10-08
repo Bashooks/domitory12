@@ -1,0 +1,150 @@
+<div>
+    <nav class="nav">
+        <div class="nav-name">
+            <img src="assets/img/logoimage.png" alt="logo" class="logo">
+            <div>
+                <h1 class="nameweb1">Dormitory</h1>
+                <h1 class="nameweb2">Web</h1>
+            </div>
+        </div>
+        <div class="nav-profile">
+            <img src="assets/img/profileimage.png" alt="profile" class="profile">
+            <p>{{userInfo.firstName}} {{userInfo.lastName}}</p>
+            <div class="dropdown">
+                <button class="dropbtn"
+                    style="background-color: rgba(255, 255, 255, 0); border: none; color: white;">V</button>
+                <div class="dropdown-content">
+                    <a href="/setting"><img src="assets/img/navdow/settingimage.png" class="dropdown1"
+                            alt="Settings Icon" style="width: 20px; height: auto;">
+                        ตั้งค่า</a>
+
+                    <a href="/documenttracking"><img src="assets/img/navdow/followimage.png" alt="Track Document Icon"
+                            style="width: 20px; height: auto;">ติดตามเอกสาร</a>
+                    <a href="#" (click)="logout()"><img src="assets/img/navdow/logoutimage.png" alt="Logout Icon"
+                            style="width: 20px; height: auto;"> ออกจากระบบ</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container">
+        <aside class="sidebar">
+
+            <div class="user-info">
+                <img src="assets/img/profileimage.png" alt="profile" class="profile">
+                <div class="user-name">{{userInfo.userType}}</div>
+            </div>
+            <ul class="menu">
+                <li><a href="/home">หน้าหลัก</a></li>
+
+                <li><a href="/documenttracking">ติดตามเอกสาร</a></li>
+                <li><a href="#">ศูนย์ช่วยเหลือ</a></li>
+                <li><a href="#">ติดต่อเรา</a></li>
+                <li><a href="/setting">ตั้งค่า</a></li>
+                <li><a href="#" (click)="logout()">ออกจากระบบ</a></li>
+            </ul>
+        </aside>
+
+        <main class="content">
+            <div class="table-header">
+                <h2 style="margin-right: 10px;">ข้อมูลเอกสาร</h2>
+
+            </div>
+            <div class="document-table">
+
+                <div class="table-controls">
+                    <label>Show
+                        <select>
+
+                            <option value="">all</option>
+                        </select> entries
+                    </label>
+                    <label class="search-label">
+                        Search:
+                        <input type="text" class="search-input" [(ngModel)]="searchText" (input)="onSearchChange()" placeholder="Search">
+                    </label>
+                </div>
+                <div class="table-wrapper">
+                    <table class="data-table">
+                        <thead>
+                            <tr>
+                                <th>รหัส</th>
+                                <th>ชื่อหอพัก</th>
+                                <th>ชื่อผู้ส่ง</th>
+                                <th>สัญญาหอพัก</th>
+                                <th>บิล</th>
+                                <th>ฟอริโอ</th>
+                                <th>วันที่อัพโหลด</th>
+                                <th>ตรวจสอบ</th>
+                                <th *ngIf="usertype === 'user'">ส่งเอกสาร</th>
+                                <th *ngIf="usertype === 'user' ">ลบเอกสาร</th>
+                                <th *ngIf="usertype === 'admin'">แก้ไขสถานะ</th>
+                                <th *ngIf="usertype === 'admin'">ลบคำขอตรวจสอบ</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let document of documentsfilter">
+                                <td>{{ document.id }}</td>
+                                <td>{{ document.name }}</td>
+                                <td>{{ document.addedBy.firstName }} {{ document.addedBy.lastName }}</td>
+                                <td *ngIf="document.contractUrl"
+                                    style="cursor: pointer; color: blue; text-decoration: underline;">
+                                    <a href="{{document.contractUrl}}" target="_blank"
+                                        rel="noopener noreferrer">สัญญาหอพัก</a>
+                                </td>
+                                <td *ngIf="!document.contractUrl" style=" color: rgb(255, 0, 0); ">
+                                    null
+                                </td>
+                                <td *ngIf="document.receiptUrl"
+                                    style="cursor: pointer; color: blue; text-decoration: underline;">
+                                    <a href="{{document.receiptUrl}}" target="_blank" rel="noopener noreferrer">บิล</a>
+                                </td>
+                                <td *ngIf="!document.receiptUrl" style=" color: rgb(255, 0, 0); ">
+                                    null
+                                </td>
+                                <td *ngIf="document.folioUrl"
+                                    style="cursor: pointer; color: blue; text-decoration: underline;">
+                                    <a href="{{document.folioUrl}}" target="_blank" rel="noopener noreferrer">ฟอริโอ</a>
+                                </td>
+                                <td *ngIf="!document.folioUrl" style=" color: rgb(255, 0, 0); ">
+                                    null
+                                </td>
+                                <td>{{ document.updatedAt }}</td>
+                               
+                                <td><span [class]="document.statusClass">{{document.status}}</span></td>
+                                <td
+                                    *ngIf="document.status === 'ไม่ผ่าน' && usertype === 'user' || usertype === 'user' && !document.contractUrl && !document.receiptUrl &&!document.folioUrl ">
+                                    <span [class]="document.statusClass"></span>
+                                    <button class="upload-btn-small"
+                                        (click)="gotosubmitdocuments(document.id)">ส่งเอกสารใหม่</button>
+                                </td>
+                                <td *ngIf="document.status === 'ไม่ผ่าน' && usertype === 'user' ">
+                                    <span [class]="document.statusClass"></span>
+                                    <button class="upload-btn-delete" (click)="delete(document.id)">ลบ</button>
+                                </td>
+
+                                <td
+                                    *ngIf="document.status === 'ผ่าน' && usertype === 'user' || document.status === 'รอการอนุมัติ' && usertype === 'user'  &&  document.contractUrl && document.receiptUrl && document.folioUrl ">
+                                    <span [class]="document.statusClass"></span>
+                                    <button disabled class="upload-btn-small2">ส่งเอกสารใหม่</button>
+                                </td>
+                                <td *ngIf="document.status != 'ไม่ผ่าน' && usertype === 'user' ">
+                                    <span [class]="document.statusClass"></span>
+                                    <button class="upload-btn-delete2" disabled>ลบ</button>
+                                </td>
+                                <td *ngIf="usertype === 'admin'">
+                                    <span [class]="document.statusClass"></span>
+                                    <button class="upload-btn-edit" (click)="editStatus(document.id)">แก้ไข</button>
+                                </td>
+                                <td *ngIf="usertype === 'admin'">
+                                    <span [class]="document.statusClass"></span>
+                                    <button class="upload-btn-delete" (click)="delete(document.id)">ลบ</button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </main>
+    </div>
+</div>

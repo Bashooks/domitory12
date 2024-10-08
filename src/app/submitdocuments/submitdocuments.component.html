@@ -1,0 +1,60 @@
+<nav class="nav">
+  <div class="nav-name">
+    <img src="assets/img/logoimage.png" alt="logo" class="logo">
+    <div>
+      <h1 class="nameweb1">Dormitory</h1>
+      <h1 class="nameweb2">Web</h1>
+    </div>
+  </div>
+  <div class="nav-profile">
+    <img src="assets/img/profileimage.png" alt="profile" class="profile">
+    <p>{{userInfo.firstName}} {{userInfo.lastName}}</p>
+    <p style="padding-right: 5px;"></p>
+    <div class="dropdown">
+      <button class="dropbtn" style="background-color: rgba(255, 255, 255, 0); border: none; color: white;">V</button>
+      <div class="dropdown-content">
+        <a href="/setting"><img src="assets/img/navdow/settingimage.png" alt="Settings Icon" style="width: 20px; height: auto;"> ตั้งค่า</a>
+        <a href="/documenttracking"><img src="assets/img/navdow/followimage.png" alt="Track Document Icon" style="width: 20px; height: auto;">ติดตามเอกสาร</a>
+        <a href="#" (click)="logout()"><img src="assets/img/navdow/logoutimage.png" alt="Logout Icon" style="width: 20px; height: auto;"> ออกจากระบบ</a>
+    </div>
+    </div>
+  </div>
+</nav>
+
+<div class="container">
+  <aside class="sidebar">
+    <h3 style="text-align: center;">User</h3>
+    <ul class="menu">
+      <li><a href="/home">หน้าหลัก</a></li>   
+      <li><a href="/documenttracking">ติดตามเอกสาร</a></li>
+      <li><a href="#">ศูนย์ช่วยเหลือ</a></li>
+      <li><a href="#">ติดต่อเรา</a></li>
+      <li><a href="/setting">ตั้งค่า</a></li>
+      <li><a href="#" (click)="logout()">ออกจากระบบ</a></li>
+    </ul>
+  </aside>
+  <main class="content">
+    <div class="document-form">
+      <h2>ส่งเอกสาร</h2>
+      <div class="form-group">
+        <label for="file">หนังสือสัญญาเช่าหอพัก(pdf)</label>
+        <input type="file" id="file" (change)="onFileSelected($event)">
+      </div>
+      <div class="form-group">
+        <label for="file">บิล(pdf)</label>
+        <input type="file" id="file" (change)="onFileSelected($event)">
+      </div>
+      <div class="form-group">
+        <label for="file">ฟอริโอ(pdf)</label>
+        <input type="file" id="file" (change)="onFileSelected($event)">
+      </div>
+      <div class="form-group">
+        <label for="uploaded-file">เอกสารตัวอย่าง</label>
+        <div class="uploaded-file" ><a href="../assets/pdf/หนังสือสัญญาเช่าห้องพัก.pdf"> หนังสือสัญญาเช่าห้องพัก</a></div>
+        <div class="uploaded-file" ><a href="../assets/pdf/หนังสือสัญญาเช่าห้องพัก.pdf"> หนังสือสัญญาเช่าห้องพัก</a></div>
+        <div class="uploaded-file" ><a href="../assets/pdf/หนังสือสัญญาเช่าห้องพัก.pdf"> หนังสือสัญญาเช่าห้องพัก</a></div>
+      </div>
+      <button class="submit-btn" (click)="onSubmit()">บันทึก</button>
+    </div>
+  </main>
+</div>

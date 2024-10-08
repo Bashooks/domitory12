@@ -1,0 +1,359 @@
+.nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #1B66AB;
+    padding: 10px;
+    /* Adjust padding as needed */
+}
+
+
+
+.nav-profile {
+    display: flex;
+    align-items: center;
+    color: white;
+}
+
+
+.nav-name {
+    display: flex;
+    align-items: center;
+}
+
+.logo {
+    height: 70px;
+    /* Adjust height as needed */
+    width: auto;
+    /* Maintain aspect ratio */
+}
+
+.profile {
+    height: 40px;
+    width: auto;
+}
+
+.name-container {
+    display: flex;
+    flex-direction: column;
+    /* Arrange text in a column */
+    justify-content: center;
+    /* Center the text vertically */
+    margin-left: 20px;
+    /* Adjust spacing from the logo */
+}
+
+.nameweb1,
+.nameweb2 {
+    margin: 0;
+    /* Remove default margins */
+}
+
+.nameweb1 {
+    position: relative;
+    z-index: 1;
+    font-family: Inter;
+    margin-left: 20px;
+    font-size: 38px;
+    font-style: italic;
+    font-weight: 600;
+    line-height: 45.99px;
+    text-align: left;
+    color: white;
+    z-index: 1;
+    text-shadow:
+        -1px -1px 0 #000,
+        1px -1px 0 #000,
+        -1px 1px 0 #000,
+        1px 1px 0 #000;
+}
+
+.nameweb2 {
+    position: relative;
+    font-family: Inter;
+    margin-left: 130px;
+    font-size: 38px;
+    font-style: italic;
+    font-weight: 600;
+    line-height: 45.99px;
+    text-align: right;
+    color: white;
+    text-shadow:
+        -1px -1px 0 #000,
+        1px -1px 0 #000,
+        -1px 1px 0 #000,
+        1px 1px 0 #000;
+    z-index: 1;
+}
+
+.header img {
+    width: 100%;
+    height: 40vh;
+    object-fit: cover;
+    display: block;
+    position: relative;
+    z-index: 0;
+}
+
+.dropdown {
+    position: relative;
+    display: inline-block;
+
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    right: 0;
+    background-color: #1B66AB;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+}
+
+.dropdown-content a {
+    color: white;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    align-items: center;
+}
+
+.dropdown-content a:hover {
+    background-color: #85a0b9
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+.dropdown:hover .dropbtn {
+    background-color: #1B66AB;
+}
+
+.dropdown-icon {
+    height: 20px;
+    width: auto;
+
+
+}
+.container {
+    display: flex;
+    height: 100vh;
+    font-family: Arial, sans-serif;
+    overflow: hidden;
+  }
+  
+  .sidebar {
+    width: 250px;
+    background-color: #3a8fd9;
+    color: white;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .logo {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 30px;
+  }
+  
+  .user-info {
+    display: flex;
+    align-items: center;
+    margin-bottom: 30px;
+  }
+  
+  .user-icon {
+    width: 50px;
+    height: 50px;
+    background-color: #e0e0e0;
+    border-radius: 50%;
+    margin-right: 10px;
+  }
+  
+  .user-name {
+    font-size: 18px;
+  }
+  
+  .menu {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    flex-grow: 1;
+  }
+  
+  .menu li {
+    margin-bottom: 15px;
+  }
+  
+  .menu a {
+    color: white;
+    text-decoration: none;
+    font-size: 18px;
+    display: block;
+  }
+  
+  .menu a:hover {
+    text-decoration: underline;
+  }
+  
+  .content {
+    flex-grow: 1;
+    background-color: #f4f4f4;
+    padding: 40px;
+  }
+  
+  .document-table {
+    background-color: white;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  .table-header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 5px;
+  }
+  
+  .table-header h2 {
+    font-size: 20px;
+  }
+  
+  .upload-btn {
+    background-color: #3a8fd9;
+    color: white;
+    padding: 8px 16px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 14px;
+  }
+  
+  .upload-btn:hover {
+    background-color: #2f7cbf;
+  }
+  
+  .table-controls {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+  }
+  
+  .table-controls label {
+    font-size: 14px;
+  }
+  
+  .table-controls .search-label {
+    display: flex;
+    align-items: center;
+  }
+  
+  .table-controls .search-input {
+    margin-left: 10px;
+    padding: 4px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
+  
+  .table-wrapper {
+    max-height: 400px; /* Adjust this height as needed */
+    overflow-y: auto;
+  }
+  
+  .data-table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  
+  .data-table th,
+  .data-table td {
+    padding: 12px;
+    border: 1px solid #ddd;
+    text-align: left;
+  }
+  
+  .data-table th {
+    background-color: #f0f0f0;
+  }
+  
+  .upload-btn-small {
+    background-color: #3a8fd9;
+    color: white;
+    padding: 4px 8px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 12px;
+    margin-left: 10px;
+  }
+  
+  .upload-btn-small:hover {
+    background-color: #2f7cbf;
+  }
+
+  .upload-btn-small2 {
+    background-color: #7fc1fa;
+    color: white;
+    padding: 4px 8px;
+    border: none;
+    border-radius: 4px;
+    font-size: 12px;
+    margin-left: 10px;
+  }
+  
+ 
+
+  .upload-btn-edit {
+    background-color:  #F07D2A;
+    color: white;
+    padding: 4px 8px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 12px;
+    margin-left: 10px;
+  }
+  
+  .upload-btn-edit:hover {
+    background-color: #ff6a00;
+  }
+
+  .upload-btn-delete {
+    background-color:  #EB2020;
+    color: white;
+    padding: 4px 8px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 12px;
+    margin-left: 10px;
+  }
+  
+  .upload-btn-delete:hover {
+    background-color: #ff0000;
+  }
+  .upload-btn-delete2 {
+    background-color:  #f16c6c;
+    color: white;
+    padding: 4px 8px;
+    border: none;
+    border-radius: 4px;
+    font-size: 12px;
+    margin-left: 10px;
+  }
+  
+  .status-pass {
+    color: green;
+  }
+  
+  .status-fail {
+    color: red;
+  }
+  
+  .status-pending {
+    color: orange;
+  }

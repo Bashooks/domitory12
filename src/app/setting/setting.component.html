@@ -1,0 +1,106 @@
+<nav class="nav">
+    <div class="nav-name">
+        <img src="assets/img/logoimage.png" alt="logo" class="logo">
+        <div>
+            <h1 class="nameweb1">Dormitory</h1>
+            <h1 class="nameweb2">Web</h1>
+        </div>
+    </div>
+    <div class="nav-profile">
+        <p style="padding-right: 15px;" (click)="gotodormitory()"> การจอง</p>
+        <p style="padding-right: 15px;">ช่วยเหลือ v</p>
+        <img src="assets/img/profileimage.png" alt="profile" class="profile">
+        <p>{{userInfo.firstName}} {{userInfo.lastName}}</p>
+        <p style="padding-right: 5px;"></p>
+        <div class="dropdown">
+            <button class="dropbtn"
+                style="background-color: rgba(255, 255, 255, 0); border: none; color: white;">V</button>
+            <div class="dropdown-content">
+                <a href="/setting"><img src="assets/img/navdow/settingimage.png" alt="Settings Icon"
+                        style="width: 20px; height: auto;"> ตั้งค่า</a>
+               
+                <a href="/documenttracking"><img src="assets/img/navdow/followimage.png" alt="Track Document Icon"
+                        style="width: 20px; height: auto;">ติดตามเอกสาร</a>
+                <a href="#" (click)="logout()"><img src="assets/img/navdow/logoutimage.png" alt="Logout Icon"
+                        style="width: 20px; height: auto;"> ออกจากระบบ</a>
+            </div>
+        </div>
+    </div>
+</nav>
+<div class="settings-container">
+    <button class="btn-setting">การตั้งค่า</button>
+    <div class="settings-tabs">
+        <button class="tab active">ข้อมูลบัญชี</button>
+        
+        
+    </div><br>
+
+    <div class="content">
+        <div class="personal-info">
+            <h2>ข้อมูลส่วนตัว</h2>
+            <form class="personal-info-form" (ngSubmit)="onSubmit()" #personalInfoForm="ngForm">
+                <div class="form-group">
+                    <label for="firstname">ชื่อ</label>
+                    <input type="text" id="firstname" name="firstname" [(ngModel)]="person.firstName"
+                        placeholder="ต้องใส่ชื่อทุกอย่างเป็นตัวอักษรไม่เป็นค่าว่าง" required>
+                </div>
+                <div class="form-group">
+                    <label for="lastname">นามสกุล</label>
+                    <input type="text" id="lastname" name="lastname" [(ngModel)]="person.lastName"
+                        placeholder="ต้องใส่ชื่อทุกอย่างเป็นตัวอักษรไม่เป็นค่าว่าง" required>
+                </div>
+                <div class="form-group">
+                    <label for="gender">เพศ</label>
+                    <select id="gender" name="gender" [(ngModel)]="person.gender" required>
+                        <option value="male">ชาย</option>
+                        <option value="female">หญิง</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="dob">วันเกิด</label>
+                    <input type="date" id="dob" name="dob" [(ngModel)]="person.dateOfBirth" required>
+                </div>
+                <div class="form-group">
+                    <label for="address">ที่อยู่</label>
+                    <input type="text" id="address" name="address" [(ngModel)]="person.address" required>
+                </div>
+                <div class="form-buttons">
+                    <button type="reset" class="btn cancel-btn">ยกเลิก</button>
+                    <button type="submit" class="btn save-btn">บันทึก</button>
+                </div>
+            </form>
+
+
+        </div>
+    </div>
+
+    <div class="content">
+        <div class="email-btn">
+            <div>
+                <h2>อีเมล</h2>
+                <p>คุณสามารถใช้ได้ไม่เกิน 3 อีเมล</p>
+            </div>
+            <button class="add-btn">+ เพิ่มอีเมล</button>
+        </div>
+    </div>
+
+    <div class="content">
+        <div class="email-btn">
+            <div>
+                <h2>โทรศัพท์มือถือ</h2>
+                <p>คุณสามารถใช้ได้ไม่เกิน 3 หมายเลขโทรศัพท์มือถือ</p>
+            </div>
+            <button class="add-btn-to">+ เพิ่มหมายเลขโทรศัพท์มือถือ</button>
+        </div>
+    </div>
+
+    <div class="content">
+        <h2>เชื่อมต่อบัญชี</h2>
+        <p>ในการเชื่อมต่อกับบัญชี Facebook คุณสามารถการเข้าสู่ระบบที่ปลอดภัยจากบัญชีผู้ใช้ของคุณผ่านทาง Facebook</p>
+        <div class="social-links">
+            <button class="social-btn facebook-btn">Facebook</button>
+            <button class="social-btn google-btn">Google</button>
+        </div>
+    </div>
+
+</div>
